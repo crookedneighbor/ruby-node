@@ -1,8 +1,8 @@
 import {
   w,
-} from '../src/lib/w';
+} from '../src/lib/top_level_methods';
 
-describe('w', () => {
+describe('Top Level Methods', () => {
   describe('#w', () => {
     it('transforms words into an array', () => {
       let words = 'How does a ragtag volunteer army in need of a shower somehow defeat a global superpower?';
