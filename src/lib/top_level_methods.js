@@ -1,8 +1,8 @@
 export var puts = console.log; // eslint-disable-line no-console
 
 export function w (words, options={}) {
-  let delimeter = options.delimeter || ' ';
-  let wordsArray = words.split(delimeter);
+  let delimiter = options.delimiter || ' ';
+  let wordsArray = words.split(delimiter);
 
   return wordsArray;
 }

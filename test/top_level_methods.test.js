@@ -19,9 +19,9 @@ describe('Top Level Methods', () => {
       expect(wordsArray).to.eql(['How', 'does', 'a', 'ragtag', 'volunteer', 'army', 'in', 'need', 'of', 'a', 'shower', 'somehow', 'defeat', 'a', 'global', 'superpower?']);
     });
 
-    it('takes in an optional delimater', () => {
+    it('takes in an optional delimiter', () => {
       let words = 'How|do|we|emerge|victorious from the quagmire?|Leave|the|battlefield|waving|Betsy Ross\’ flag higher?';
-      let wordsArray = w(words, { delimeter: '|' });
+      let wordsArray = w(words, { delimiter: '|' });
 
       expect(wordsArray).to.eql(['How', 'do', 'we', 'emerge', 'victorious from the quagmire?', 'Leave', 'the', 'battlefield', 'waving', 'Betsy Ross\’ flag higher?']);
     });
