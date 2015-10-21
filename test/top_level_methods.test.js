@@ -5,6 +5,12 @@ import {
 } from '../src/lib/top_level_methods';
 
 describe('Top Level Methods', () => {
+  describe('#puts', () => {
+    it('is an alias for console.log', () => {
+      expect(puts).to.eql(console.log); // eslint-disable-line no-console
+    });
+  });
+
   describe('#w', () => {
     it('transforms words into an array', () => {
       let words = 'How does a ragtag volunteer army in need of a shower somehow defeat a global superpower?';
@@ -24,12 +30,6 @@ describe('Top Level Methods', () => {
   describe('#percent_w', () => {
     it('is an alias for #w', () => {
       expect(percent_w).to.eql(w);
-    });
-  });
-
-  describe('#puts', () => {
-    it('is an alias for console.log', () => {
-      expect(puts).to.eql(console.log); // eslint-disable-line no-console
     });
   });
 });

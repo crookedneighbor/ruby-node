@@ -1,3 +1,5 @@
+export var puts = console.log; // eslint-disable-line no-console
+
 export function w (words, options={}) {
   let delimeter = options.delimeter || ' ';
   let wordsArray = words.split(delimeter);
@@ -6,5 +8,3 @@ export function w (words, options={}) {
 }
 
 export var percent_w = w;
-
-export var puts = console.log; // eslint-disable-line no-console
