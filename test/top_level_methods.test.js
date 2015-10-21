@@ -2,7 +2,7 @@ import {
   w,
   percent_w,
   puts,
-} from '../src/lib/top_level_methods';
+} from '../src/top_level_methods';
 
 describe('Top Level Methods', () => {
   describe('#puts', () => {
