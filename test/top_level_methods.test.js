@@ -21,7 +21,7 @@ describe('Top Level Methods', () => {
   });
 
   describe('#puts', () => {
-    it('is console.log', () => {
+    it('is an alias for console.log', () => {
       expect(puts).to.eql(console.log); // eslint-disable-line no-console
     });
   });
