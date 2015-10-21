@@ -1,5 +1,6 @@
 import {
   w,
+  percent_w,
   puts,
 } from '../src/lib/top_level_methods';
 
@@ -17,6 +18,12 @@ describe('Top Level Methods', () => {
       let wordsArray = w(words, { delimeter: '|' });
 
       expect(wordsArray).to.eql(['How', 'do', 'we', 'emerge', 'victorious from the quagmire?', 'Leave', 'the', 'battlefield', 'waving', 'Betsy Ross\’ flag higher?']);
+    });
+  });
+
+  describe('#percent_w', () => {
+    it('is an alias for #w', () => {
+      expect(percent_w).to.eql(w);
     });
   });
 
