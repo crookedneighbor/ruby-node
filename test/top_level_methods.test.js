@@ -13,7 +13,7 @@ describe('Top Level Methods', () => {
 
     it('takes in an optional delimater', () => {
       let words = 'How|do|we|emerge|victorious from the quagmire?|Leave|the|battlefield|waving|Betsy Ross\’ flag higher?';
-      let wordsArray = w(words, '|');
+      let wordsArray = w(words, { delimeter: '|' });
 
       expect(wordsArray).to.eql(['How', 'do', 'we', 'emerge', 'victorious from the quagmire?', 'Leave', 'the', 'battlefield', 'waving', 'Betsy Ross\’ flag higher?']);
     });
