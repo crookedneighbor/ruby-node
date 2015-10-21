@@ -1,4 +1,4 @@
-export function w (words) {
-  let wordsArray = words.split(' ');
+export function w (words, delimeter=' ') {
+  let wordsArray = words.split(delimeter);
   return wordsArray;
 }
