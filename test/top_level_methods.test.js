@@ -1,5 +1,6 @@
 import {
   w,
+  puts,
 } from '../src/lib/top_level_methods';
 
 describe('Top Level Methods', () => {
@@ -16,6 +17,12 @@ describe('Top Level Methods', () => {
       let wordsArray = w(words, { delimeter: '|' });
 
       expect(wordsArray).to.eql(['How', 'do', 'we', 'emerge', 'victorious from the quagmire?', 'Leave', 'the', 'battlefield', 'waving', 'Betsy Ross\’ flag higher?']);
+    });
+  });
+
+  describe('#puts', () => {
+    it('is console.log', () => {
+      expect(puts).to.eql(console.log); // eslint-disable-line no-console
     });
   });
 });

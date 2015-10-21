@@ -4,3 +4,5 @@ export function w (words, options={}) {
 
   return wordsArray;
 }
+
+export var puts = console.log; // eslint-disable-line no-console
