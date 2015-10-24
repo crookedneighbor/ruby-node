@@ -2,16 +2,34 @@
 // arrow up
 // Ruby-like helper methods.
 
+import {each} from 'lodash';
+
 // # puts()
 //
-// An alias for console.log. Use it if your repo has an eslint rule for no-console 😉
+// Sends the string to stdout
 //
 // ```js
 // import {puts} from 'ruby';
 //
-// puts('Hercules Mulligan!');
+// puts('this is a test');
+// // this is a test
 // ```
-export var puts = console.log; // eslint-disable-line no-console
+//
+// If multiple strings are passed in, they'll be printed to stdout
+// separated by new lines
+//
+// ```js
+// puts('this', 'is', 'a', 'test');
+// // this
+// // is
+// // a
+// // test
+// ```
+export function puts () {
+  each(arguments, (arg) => {
+    console.log(arg); // eslint-disable-line no-console
+  });
+};
 
 // # w()
 //

@@ -1,13 +1,28 @@
+import { stdoutTrap } from 'logtrap';
 import {
+  puts,
   w,
   percent_w,
-  puts,
 } from '../src/top_level_methods';
 
 describe('Top Level Methods', () => {
   describe('#puts', () => {
-    it('is an alias for console.log', () => {
-      expect(puts).to.eql(console.log); // eslint-disable-line no-console
+    context('strings', () => {
+      it('outputs string to stdout', () => {
+        let capturedStdout = stdoutTrap(() => {
+          puts('this is a test');
+        });
+
+        expect(capturedStdout).to.eql('this is a test\n');
+      });
+
+      it('outputs multiple string arguments to stdout separated by new lines', () => {
+        let capturedStdout = stdoutTrap(() => {
+          puts('this', 'is', 'a', 'test');
+        });
+
+        expect(capturedStdout).to.eql('this\nis\na\ntest\n');
+      });
     });
   });
 
