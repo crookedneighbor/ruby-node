@@ -2,35 +2,6 @@
 // arrow up
 // Ruby-like helper methods.
 
-import {each} from 'lodash';
-
-// # puts()
-//
-// Sends the string to stdout
-//
-// ```js
-// import {puts} from 'ruby';
-//
-// puts('this is a test');
-// // this is a test
-// ```
-//
-// If multiple strings are passed in, they'll be printed to stdout
-// separated by new lines
-//
-// ```js
-// puts('this', 'is', 'a', 'test');
-// // this
-// // is
-// // a
-// // test
-// ```
-export function puts () {
-  each(arguments, (arg) => {
-    console.log(arg); // eslint-disable-line no-console
-  });
-};
-
 // # w()
 //
 // Inspired by Ruby's [`%w`](link).
