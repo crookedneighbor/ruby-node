@@ -81,6 +81,7 @@
                 </a>
                 <h1 id="methods">Methods</h1>
 <ul>
+<li><a href="#putc">putc</a></li>
 <li><a href="#puts">puts</a></li>
 </ul>
 
@@ -88,6 +89,7 @@
               
                 <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> $<span class="hljs-title">Stdout</span> </span>{
   constructor () {
+    <span class="hljs-keyword">this</span>.putc = putc;
     <span class="hljs-keyword">this</span>.puts = puts;
   }
 }</pre></div></div>
@@ -100,7 +102,67 @@
           
             
             
-            <div id="puts" class="section-2 ui middle aligned two column grid">
+            <div id="putc" class="section-2 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#putc">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="putc-">putc()</h1>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { putc } <span class="hljs-keyword">from</span> <span class="hljs-string">'ruby'</span>;
+</code></pre>
+<p>Prints a character to stdout. Only prints the first letter of the string and only takes in a single string or number.</p>
+<pre><code class="lang-js">putc(<span class="hljs-string">'ABC'</span>);
+<span class="hljs-comment">// A</span>
+</code></pre>
+<p>Prints the character equivalent of the number that is passed in.</p>
+<pre><code class="lang-js">putc(<span class="hljs-number">65</span>);
+<span class="hljs-comment">// A</span>
+</code></pre>
+<p>Does not print new new lines.</p>
+<pre><code class="lang-js">putc(<span class="hljs-string">'A'</span>);
+putc(<span class="hljs-string">'B'</span>);
+putc(<span class="hljs-string">'C'</span>);
+<span class="hljs-comment">// ABC</span>
+</code></pre>
+<p>Returns the original argument</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> word = putc(<span class="hljs-string">'ABC'</span>);
+word; <span class="hljs-comment">// 'ABC'</span>
+</code></pre>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">putc</span> (<span class="hljs-params">arg</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length !== <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">`ArgumentError: wrong number of arguments (<span class="hljs-subst">${arguments.length}</span> for 1)`</span>;
+  }
+
+  <span class="hljs-keyword">if</span> (!(isNumber(arg) || isString(arg))) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">`no implicit conversion of <span class="hljs-subst">${typeof arg}</span> into Integer (TypeError)`</span>;
+  }
+
+  <span class="hljs-keyword">let</span> output;
+
+  <span class="hljs-keyword">if</span> (isString(arg)) {
+    output = arg.slice(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+  } <span class="hljs-keyword">else</span> {
+    output = <span class="hljs-built_in">String</span>.fromCharCode(arg);
+  }
+
+  process.stdout.write(output);
+
+  <span class="hljs-keyword">return</span> arg;
+}</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="puts" class="section-3 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#puts">
@@ -192,23 +254,23 @@ puts(<span class="hljs-number">0</span>/<span class="hljs-number">0</span>);
                 <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">puts</span> (<span class="hljs-params"></span>) </span>{
   each(<span class="hljs-built_in">arguments</span>, (arg) =&gt; {
     <span class="hljs-keyword">if</span> (isString(arg) || isNumber(arg) || isBoolean(arg)) {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">String</span>(arg));
+      _printWithNewLine(<span class="hljs-built_in">String</span>(arg));
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isNull(arg) || isUndefined(arg)) {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">''</span>);
+      _printWithNewLine(<span class="hljs-string">''</span>);
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isRegExp(arg)) {
       <span class="hljs-keyword">let</span> stringifiedRegEx = _convertRegexToString(arg);
-      <span class="hljs-built_in">console</span>.log(stringifiedRegEx);
+      _printWithNewLine(stringifiedRegEx);
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>) {
       <span class="hljs-keyword">let</span> stringifiedError = _convertErrorToString(arg);
-      <span class="hljs-built_in">console</span>.log(stringifiedError);
+      _printWithNewLine(stringifiedError);
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isArray(arg)) {
       each(arg, (element) =&gt; {
         puts(element);
       });
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!isPlainObject(arg) &amp;&amp; isObject(arg)) {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`#&lt;<span class="hljs-subst">${arg.constructor.name}</span>&gt;`</span>);
+      _printWithNewLine(<span class="hljs-string">`#&lt;<span class="hljs-subst">${arg.constructor.name}</span>&gt;`</span>);
     } <span class="hljs-keyword">else</span> {
-      <span class="hljs-built_in">console</span>.log(arg);
+      <span class="hljs-built_in">console</span>.log(arg); <span class="hljs-comment">// hack to make plain objects print semi-correctly</span>
     }
   });
 }</pre></div></div>
