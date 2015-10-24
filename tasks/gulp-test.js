@@ -7,7 +7,7 @@ require('../test/support/globals');
 
 gulp.task('test', (done) => {
   let mocha = new Mocha();
-  let tests = glob('./test/unit/**/*.js');
+  let tests = glob('./test/**/*.js');
 
   tests.forEach((test) => {
     delete require.cache[resolve(test)];
