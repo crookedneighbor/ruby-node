@@ -4,6 +4,8 @@
 
 Helper methods from ruby ported to Node.
 
+![Ruby + Node](https://raw.githubusercontent.com/crookedneighbor/ruby-node/master/docs/assets/images/logos.png)
+
 ## Getting Started
 
 ```bash
