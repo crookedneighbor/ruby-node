@@ -6,10 +6,7 @@
 import { assign } from 'lodash';
 
 import $Stdout from './stdout';
-import {
-  w,
-  percent_w,
-} from './top_level_methods';
+import PercentStrings from './percent_strings';
 
 // # Getting Started
 //
@@ -37,12 +34,11 @@ class Ruby {
     this.$stdout = new $Stdout();
     assign(this, this.$stdout);
 
-    // # Top Level Methods - [Docs](top_level_methods.html)
+    // # Percent Strings - [Docs](percent_strings.html)
     //
-    // * [w](top_level_methods.html#w)
-    // * [percent_w](top_level_methods.html#percent_w)
-    this.w = w;
-    this.percent_w = percent_w;
+    // * [w](percent_strings.html#w)
+    // * [percent_w](percent_strings.html#percent_w)
+    assign(this, new PercentStrings());
 
     // NOOP
   }

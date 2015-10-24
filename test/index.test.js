@@ -6,9 +6,10 @@ import {
 import ruby from  '../src/index';
 
 import $Stdout from '../src/stdout';
+import PercentStrings from '../src/percent_strings';
 
 describe('ruby', () => {
-  context('$stdout', () => {
+  context('$stdout methods', () => {
     it('has stdout property', () => {
       expect(ruby.$stdout).to.be.an.instanceOf($Stdout);
     });
@@ -20,13 +21,8 @@ describe('ruby', () => {
     });
   });
 
-  context('top level methods', () => {
-    const top_level_methods = [
-      'w',
-      'percent_w',
-    ];
-
-    each(top_level_methods, (method) => {
+  context('Percent Strings', () => {
+    each(functions(new PercentStrings()), (method) => {
       it(`responds to ${method}`, () => {
         expect(ruby).to.respondTo(method);
       });
