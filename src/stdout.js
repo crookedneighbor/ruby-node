@@ -153,28 +153,32 @@ export default class $Stdout {
 function puts () {
   each(arguments, (arg) => {
     if (isString(arg) || isNumber(arg) || isBoolean(arg)) {
-      console.log(String(arg));
+      _printWithNewLine(String(arg));
     } else if (isNull(arg) || isUndefined(arg)) {
-      console.log('');
+      _printWithNewLine('');
     } else if (isRegExp(arg)) {
       let stringifiedRegEx = _convertRegexToString(arg);
-      console.log(stringifiedRegEx);
+      _printWithNewLine(stringifiedRegEx);
     } else if (arg instanceof Error) {
       let stringifiedError = _convertErrorToString(arg);
-      console.log(stringifiedError);
+      _printWithNewLine(stringifiedError);
     } else if (isArray(arg)) {
       each(arg, (element) => {
         puts(element);
       });
     } else if (!isPlainObject(arg) && isObject(arg)) {
-      console.log(`#<${arg.constructor.name}>`);
+      _printWithNewLine(`#<${arg.constructor.name}>`);
     } else {
-      console.log(arg);
+      console.log(arg); // hack to make plain objects print semi-correctly
     }
   });
 }
 
 // NOOP
+function _printWithNewLine (arg) {
+  process.stdout.write(`${arg}\n`);
+}
+
 function _convertRegexToString(regex) {
   let str = String(regex);
   str = str.slice(1, -1);
