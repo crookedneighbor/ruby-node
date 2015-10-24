@@ -2,6 +2,8 @@
 // comment outline
 // Get the stdout!
 
+/* eslint-disable no-console */
+
 import {
   each,
   isArray,
