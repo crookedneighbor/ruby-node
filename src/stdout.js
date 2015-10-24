@@ -18,11 +18,70 @@ import {
 } from 'lodash';
 
 // # Methods
+// * [putc](#putc)
 // * [puts](#puts)
 export default class $Stdout {
   constructor () {
+    this.putc = putc;
     this.puts = puts;
   }
+}
+
+// # putc()
+//
+// ```js
+// import { putc } from 'ruby';
+// ```
+//
+// Prints a character to stdout. Only prints the first letter of the string and only takes in a single string or number.
+//
+// ```js
+// putc('ABC');
+// // A
+// ```
+//
+// Prints the character equivalent of the number that is passed in.
+//
+// ```js
+// putc(65);
+// // A
+// ```
+//
+// Does not print new new lines.
+//
+// ```js
+// putc('A');
+// putc('B');
+// putc('C');
+// // ABC
+// ```
+//
+// Returns the original argument
+//
+// ```js
+// let word = putc('ABC');
+// word; // 'ABC'
+// ```
+function putc (arg) {
+  if (arguments.length !== 1) {
+    throw `ArgumentError: wrong number of arguments (${arguments.length} for 1)`;
+  }
+
+  if (!(isNumber(arg) || isString(arg))) {
+    throw `no implicit conversion of ${typeof arg} into Integer (TypeError)`;
+  }
+
+  let output;
+
+  if (isString(arg)) {
+    output = arg.slice(0, 1);
+  } else {
+    output = String.fromCharCode(arg);
+  }
+
+  process.stdout.write(output);
+
+  return arg;
 }
 
 // # puts()

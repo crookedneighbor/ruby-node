@@ -3,6 +3,77 @@ import $Stdout from '../src/stdout';
 let $stdout = new $Stdout;
 
 describe('$stdout', () => {
+  describe('#putc', () => {
+    it('outputs a character', () => {
+      let capturedStdout = stdoutTrap(() => {
+        $stdout.putc('A');
+      });
+
+      expect(capturedStdout).to.eql('A');
+    });
+
+    it('prints just the first character', () => {
+      let capturedStdout = stdoutTrap(() => {
+        $stdout.putc('AA');
+      });
+
+      expect(capturedStdout).to.eql('A');
+    });
+
+    it('converts number to character equivalent', () => {
+      let capturedStdout = stdoutTrap(() => {
+        $stdout.putc(65);
+      });
+
+      expect(capturedStdout).to.eql('A');
+    });
+
+    it('converts hexadecimal to character equivalent', () => {
+      let capturedStdout = stdoutTrap(() => {
+        $stdout.putc(0xA);
+      });
+
+      expect(capturedStdout).to.eql('\n');
+    });
+
+    it('does not print a new line character automatically', () => {
+      let capturedStdout = stdoutTrap(() => {
+        $stdout.putc('A');
+        $stdout.putc('B');
+        $stdout.putc('C');
+      });
+
+      expect(capturedStdout).to.eql('ABC');
+    });
+
+    it('returns the original argument', () => {
+      let argument;
+      let capturedStdout = stdoutTrap(() => {
+        argument = $stdout.putc('ABC');
+      });
+
+      expect(argument).to.eql('ABC');
+    });
+
+    it('throws an error if no argument is passed in', () => {
+      expect(() => {
+        $stdout.putc();
+      }).to.throw('ArgumentError: wrong number of arguments (0 for 1)');
+    });
+
+    it('throws an error if more than one argument is passed in', () => {
+      expect(() => {
+        $stdout.putc('a', 'b');
+      }).to.throw('ArgumentError: wrong number of arguments (2 for 1)');
+    });
+
+    it('throws an error if an argument other than a string or number is passed in', () => {
+      expect(() => {
+        $stdout.putc(true);
+      }).to.throw('no implicit conversion of boolean into Integer (TypeError)');
+    });
+  });
+
   describe('#puts', () => {
     context('strings', () => {
       it('outputs string to stdout', () => {

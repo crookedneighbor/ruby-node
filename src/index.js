@@ -30,6 +30,7 @@ class Ruby {
     // A collection of methods that output to stdout. All the methods
     // are available both on the $stdout object and as standalone methods.
     //
+    // * [putc](stdout.html#putc)
     // * [puts](stdout.html#puts)
     this.$stdout = new $Stdout();
     assign(this, this.$stdout);
