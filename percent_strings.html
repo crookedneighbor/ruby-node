@@ -7,7 +7,7 @@
 
 <html>
 <head>
-  <title>Top Level Methods</title>
+  <title>Percent Strings</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" media="all" href="assets/css/style.css" />
@@ -30,16 +30,16 @@
     
       
       
-      <a class="item menu-link" href="stdout.html">
+      <a class="item menu-link" href="percent_strings.html">
         
-        Stdout 
+        Percent Strings 
       </a>
     
       
       
-      <a class="item menu-link" href="top_level_methods.html">
+      <a class="item menu-link" href="stdout.html">
         
-        Top Level Methods 
+        Stdout 
       </a>
     
   </div>
@@ -49,7 +49,7 @@
       <div class='ui basic button icon' id='menu-button'>
         <i class='icon sidebar'></i>
       </div>
-      <a href='https://github.com/crookedneighbor/ruby-node/blob/master/src/top_level_methods.js' class='ui basic button icon' data-content="View Source Code">
+      <a href='https://github.com/crookedneighbor/ruby-node/blob/master/src/percent_strings.js' class='ui basic button icon' data-content="View Source Code">
         <i class='icon code'></i>
       </a>
     </div>
@@ -59,9 +59,9 @@
     <div id="container" class="ui container">
       <div class="ui middle aligned two column grid">
         <h2 class="ui icon header center aligned column">
-          <i class="arrow up icon"></i>
-          Top Level Methods
-          <div class="sub header">Ruby-like helper methods.</div>
+          <i class="asterisk icon"></i>
+          Percent Strings
+          <div class="sub header">Only a percent of a string.</div>
         </h2>
         <div class='column'></div>
       </div>
@@ -73,21 +73,51 @@
           
             
             
-            <div id="w" class="section-1 ui middle aligned two column grid">
+            <div id="Methods" class="section-1 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#Methods">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="methods">Methods</h1>
+<p>Inspired by Ruby’s <a href="http://ruby-doc.org/core-2.0.0/doc/syntax/literals_rdoc.html#label-Percent+Strings">Percent Strings</a></p>
+<ul>
+<li><a href="#w">w</a></li>
+<li><a href="#percent_w">percent_w</a></li>
+</ul>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PercentStrings</span> </span>{
+  constructor () {
+    <span class="hljs-keyword">this</span>.w = w;
+    <span class="hljs-keyword">this</span>.percent_w = percent_w;
+  }
+}</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="w" class="section-2 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#w">
                   <i class="linkify icon"></i>
                 </a>
                 <h1 id="w-">w()</h1>
-<p>Inspired by Ruby’s <a href="link"><code>%w</code></a>.</p>
+<p>Inspired by Ruby’s <code>%w</code>.</p>
 <p>Takes in a string as an argument and converts it to an array, deliminated by spaces.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> {w} <span class="hljs-keyword">from</span> <span class="hljs-string">'ruby'</span>;
 
 <span class="hljs-keyword">let</span> words = w(<span class="hljs-string">'Hercules Mulligan!'</span>);
 words; <span class="hljs-comment">// ['Hercules', 'Mulligan!'];</span>
 </code></pre>
-<p>Takes an options hash where you can specify a specific delimeter.</p>
+<p>Takes an options hash where you can specify a specific delimeter. Use this if you need an element to contain whitespaces, as escaping the white space character will not work.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> my_shot = <span class="hljs-string">'I am not throwing away my shot.'</span>;
 <span class="hljs-keyword">let</span> words = w(my_shot, { delimiter: <span class="hljs-string">'not'</span> });
 words; <span class="hljs-comment">// ['I am ', ' throwing away my shot.'];</span>
@@ -95,7 +125,7 @@ words; <span class="hljs-comment">// ['I am ', ' throwing away my shot.'];</span
 
               </div>
               
-                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">w</span> (<span class="hljs-params">words, options={}</span>) </span>{
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">w</span> (<span class="hljs-params">words, options={}</span>) </span>{
   <span class="hljs-keyword">let</span> delimiter = options.delimiter || <span class="hljs-string">' '</span>;
   <span class="hljs-keyword">let</span> wordsArray = words.split(delimiter);
 
@@ -110,7 +140,7 @@ words; <span class="hljs-comment">// ['I am ', ' throwing away my shot.'];</span
           
             
             
-            <div id="percent_w" class="section-2 ui middle aligned two column grid">
+            <div id="percent_w" class="section-3 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#percent_w">
@@ -126,7 +156,7 @@ you_say; <span class="hljs-comment">// ['You', 'say', 'the', 'price', 'of', 'my'
 
               </div>
               
-                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> percent_w = w;</pre></div></div>
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">let</span> percent_w = w;</pre></div></div>
               
             </div>
           
