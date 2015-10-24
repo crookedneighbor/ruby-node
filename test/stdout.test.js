@@ -21,5 +21,15 @@ describe('$stdout', () => {
         expect(capturedStdout).to.eql('this\nis\na\ntest\n');
       });
     });
+
+    context('arrays', () => {
+      it('outputs to stdout separated by new lines', () => {
+        let capturedStdout = stdoutTrap(() => {
+          $stdout.puts(['this', 'is', 'a', 'test']);
+        });
+
+        expect(capturedStdout).to.eql('this\nis\na\ntest\n');
+      });
+    });
   });
 });
