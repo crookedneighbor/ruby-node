@@ -10,13 +10,13 @@ import PercentStrings from '../src/percent_strings';
 
 describe('ruby', () => {
   context('$stdout methods', () => {
-    it('has stdout property', () => {
+    it('has an stdout property', () => {
       expect(ruby.$stdout).to.be.an.instanceOf($Stdout);
     });
 
     each(functions(new $Stdout), (method) => {
-      it(`responds to ${method}`, () => {
-        expect(ruby).to.respondTo(method);
+      it(`has a method named ${method}`, () => {
+        expect(ruby[method]).to.be.a('function');
       });
     });
   });
