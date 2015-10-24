@@ -13,10 +13,19 @@ npm install ruby --save
 ```
 
 ```js
-let r = require('ruby');
+import { w, puts } from 'ruby';
 
-let words = r.w('I am not throwing away my shot!');
+let words = w('I am not throwing away my shot!');
 words; // ['I', 'am', 'not', 'throwing', 'away', 'my', 'shot!']
+
+puts(words);
+// I
+// am
+// not
+// throwing
+// away
+// my
+// shot!
 ```
 
 For more info, [read the docs](http://crookedneighbor.github.io/ruby-node/)
