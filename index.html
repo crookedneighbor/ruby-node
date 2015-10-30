@@ -42,6 +42,13 @@
         Stdout 
       </a>
     
+      
+      
+      <a class="item menu-link" href="string.html">
+        
+        String 
+      </a>
+    
   </div>
 
   <div class='pusher'>
@@ -151,6 +158,33 @@ are available both on the $stdout object and as standalone methods.</p>
                 <a class='section-link' href="#">
                   <i class="linkify icon"></i>
                 </a>
+                <h1 id="str-docs-str-html-">str - <a href="str.html">Docs</a></h1>
+<ul>
+<li><a href="string.html#chars">chars</a></li>
+<li><a href="string.html#downcase">downcase</a></li>
+<li><a href="string.html#empty">empty</a></li>
+<li><a href="string.html#reverse">reverse</a></li>
+<li><a href="string.html#upcase">upcase</a></li>
+</ul>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.str = <span class="hljs-keyword">new</span> _String();</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="" class="section-6 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#">
+                  <i class="linkify icon"></i>
+                </a>
                 <h1 id="percent-strings-docs-percent_strings-html-">Percent Strings - <a href="percent_strings.html">Docs</a></h1>
 <ul>
 <li><a href="percent_strings.html#w">w</a></li>
@@ -160,6 +194,43 @@ are available both on the $stdout object and as standalone methods.</p>
               </div>
               
                 <div class="content column hljs javascript"><div class='highlight'><pre>    assign(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> PercentStrings());</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+        
+          
+          
+          
+            
+            
+            <div id="add_methods_to_string_prototype
+" class="section-8 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#add_methods_to_string_prototype
+">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="add_methods_to_string_prototype">add_methods_to_string_prototype</h1>
+<p>If you’d like the <a href="string.html">String Methods</a> as attributes on any string, just run this method.</p>
+<pre><code class="lang-js">ruby.add_methods_to_string_prototype();
+</code></pre>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre>  add_methods_to_string_prototype () {
+    each(functions(<span class="hljs-keyword">this</span>.str), (method) =&gt; {
+      <span class="hljs-built_in">Object</span>.defineProperty(
+        <span class="hljs-built_in">String</span>.prototype,
+        method,
+        { get: <span class="hljs-keyword">this</span>.str[method] }
+      );
+    });
+  }</pre></div></div>
               
             </div>
           
