@@ -99,8 +99,9 @@
 <p>These can be called through the str object on ruby:</p>
 <pre><code class="lang-js">ruby.str.downcase(<span class="hljs-string">'hEllO'</span>); <span class="hljs-comment">// hello</span>
 </code></pre>
-<p>Of, if you initialize ruby with the add_methods_to_string_prototype option, you can call each method as a property on any string.</p>
-<pre><code class="lang-js"><span class="hljs-built_in">require</span>(<span class="hljs-string">'ruby'</span>)({ add_methods_to_string_prototype: <span class="hljs-literal">true</span> });
+<p>Or, if you call the add_methods_to_string_prototype method, you can call each applicable method as a property on any string.</p>
+<pre><code class="lang-js">reuby = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ruby'</span>);
+ruby.add_methods_to_string_prototype();
 
 <span class="hljs-string">'hEllO'</span>.downcase; <span class="hljs-comment">// hello</span>
 </code></pre>
