@@ -99,8 +99,8 @@
 <p>These can be called through the str object on ruby:</p>
 <pre><code class="lang-js">ruby.str.downcase(<span class="hljs-string">'hEllO'</span>); <span class="hljs-comment">// hello</span>
 </code></pre>
-<p>Or, if you call the add_methods_to_string_prototype method, you can call each applicable method as a property on any string.</p>
-<pre><code class="lang-js">reuby = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ruby'</span>);
+<p>Or, if you call the <code>add_methods_to_string_prototype</code> method, you can call each applicable method as a property on any string.</p>
+<pre><code class="lang-js">ruby = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ruby'</span>);
 ruby.add_methods_to_string_prototype();
 
 <span class="hljs-string">'hEllO'</span>.downcase; <span class="hljs-comment">// hello</span>
@@ -156,10 +156,13 @@ new_string; <span class="hljs-comment">// 'abc'</span>
               
                 <div class="content column hljs javascript"><div class='highlight'><pre>  <span class="hljs-keyword">new</span> (str) {
     <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${str}</span>`</span>;
-  }
-}</pre></div></div>
+  }</pre></div></div>
               
             </div>
+          
+        
+          
+          
           
         
           
@@ -174,7 +177,7 @@ Returns the characters of the string in an array.
 ```js
 let chars = 'abc'.chars;
 chars; // ['a', 'b', 'c']
-```" class="section-3 ui middle aligned two column grid">
+```" class="section-4 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#chars
@@ -216,7 +219,7 @@ Returns the string with all lowercase letters.
 ```js
 let str = 'hEllO'.downcase;
 str; // 'hello'
-```" class="section-4 ui middle aligned two column grid">
+```" class="section-5 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#downcase
@@ -261,7 +264,7 @@ Returns true if the string is empty and false if it is not.
 ''.empty; // true
 ```
 
-`empty_questionmark` is an alias for `empty`." class="section-5 ui middle aligned two column grid">
+`empty_questionmark` is an alias for `empty`." class="section-6 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#empty
@@ -310,7 +313,7 @@ Returns the string in reverse order.
 ```js
 let str = 'stressed'.reverse;
 str; // 'desserts'
-```" class="section-6 ui middle aligned two column grid">
+```" class="section-7 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#reverse
@@ -356,7 +359,7 @@ Returns the string with all uppercase letters.
 ```js
 let str = 'hEllO'.upcase;
 str; // 'HELLO'
-```" class="section-7 ui middle aligned two column grid">
+```" class="section-8 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#upcase
