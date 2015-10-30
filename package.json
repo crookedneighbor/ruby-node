@@ -1,6 +1,6 @@
 {
   "name": "ruby",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Helper methods from ruby ported to Node.",
   "main": "dist/index.js",
   "scripts": {
