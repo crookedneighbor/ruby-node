@@ -3,9 +3,14 @@
 // Helper methods from ruby ported to Node.
 
 // NOOP
-import { assign } from 'lodash';
+import {
+  assign,
+  each,
+  functions,
+} from 'lodash';
 
 import $Stdout from './stdout';
+import _String from './string';
 import PercentStrings from './percent_strings';
 
 // # Getting Started
@@ -35,14 +40,42 @@ class Ruby {
     this.$stdout = new $Stdout();
     assign(this, this.$stdout);
 
+    // # str - [Docs](str.html)
+    //
+    // * [chars](string.html#chars)
+    // * [downcase](string.html#downcase)
+    // * [empty](string.html#empty)
+    // * [reverse](string.html#reverse)
+    // * [upcase](string.html#upcase)
+    this.str = new _String();
+
     // # Percent Strings - [Docs](percent_strings.html)
     //
     // * [w](percent_strings.html#w)
     // * [percent_w](percent_strings.html#percent_w)
     assign(this, new PercentStrings());
 
-    // NOOP
+  // NOOP
   }
+
+  // # add_methods_to_string_prototype
+  //
+  // If you'd like the [String Methods](string.html) as attributes on any string, just run this method.
+  //
+  // ```js
+  // ruby.add_methods_to_string_prototype();
+  // ```
+  add_methods_to_string_prototype () {
+    each(functions(this.str), (method) => {
+      Object.defineProperty(
+        String.prototype,
+        method,
+        { get: this.str[method] }
+      );
+    });
+  }
+
+// NOOP
 }
 
 export default new Ruby();
