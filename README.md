@@ -13,12 +13,12 @@ npm install ruby --save
 ```
 
 ```js
-import { w, puts } from 'ruby';
+let ruby = require('ruby');
 
-let words = w('I am not throwing away my shot!');
+let words = ruby.w('I am not throwing away my shot!');
 words; // ['I', 'am', 'not', 'throwing', 'away', 'my', 'shot!']
 
-puts(words);
+ruby.puts(words);
 // I
 // am
 // not
@@ -26,6 +26,13 @@ puts(words);
 // away
 // my
 // shot!
+```
+
+```js
+let ruby = require('ruby');
+ruby.add_methods_to_string_prototype();
+
+'stressed'.reverse; // 'desserts'
 ```
 
 For more info, [read the docs](http://crookedneighbor.github.io/ruby-node/)

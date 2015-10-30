@@ -19,10 +19,11 @@ import {
 // ruby.str.downcase('hEllO'); // hello
 // ```
 //
-// Of, if you initialize ruby with the add_methods_to_string_prototype option, you can call each method as a property on any string.
+// Or, if you call the add_methods_to_string_prototype method, you can call each applicable method as a property on any string.
 //
 // ```js
-// require('ruby')({ add_methods_to_string_prototype: true });
+// reuby = require('ruby');
+// ruby.add_methods_to_string_prototype();
 //
 // 'hEllO'.downcase; // hello
 // ```
