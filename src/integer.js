@@ -10,6 +10,7 @@ import {
 //
 // * [even](#even)
 // * [gcd](#gcd)
+// * [gcdlcm](#gcdlcm)
 // * [lcm](#lcm)
 // * [next](#next)
 // * [odd](#odd)
@@ -55,6 +56,7 @@ export default class _Integer {
     this.even = even;
     this.even_questionmark = this.even;
     this.gcd = gcd;
+    this.gcdlcm = gcdlcm;
     this.lcm = lcm;
     this.next = next;
     this.odd = odd;
@@ -109,6 +111,22 @@ function gcd(number_1, number_2) {
   } else {
     return Math.abs(number_1);
   }
+}
+
+// # gcdlcm
+//
+// Returns an array. The first element is the greatest common divisor and the second is the least common multiple.
+// ```js
+// (2).gcdlcm(2); // [2, 2]
+// (3).gcdlcm(-7); // [1, 21]
+// ```
+function gcdlcm(number_1, number_2) {
+  if (isUndefined(number_1)) number_1 = this;
+
+  let greatest_common_divisor = gcd(number_1, number_2);
+  let least_common_multiple = lcm(number_1, number_2);
+
+  return [greatest_common_divisor, least_common_multiple];
 }
 
 // # lcm

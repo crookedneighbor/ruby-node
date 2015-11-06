@@ -40,6 +40,13 @@ describe('Integer', () => {
     });
   });
 
+  describe('#gcdlcm', () => {
+    it('returns an array with the gcd and lcm', () => {
+      expect(number.gcdlcm(2, 2)).to.eql([2, 2]);
+      expect(number.gcdlcm(3, 7)).to.eql([1, 21]);
+    });
+  });
+
   describe('#lcm', () => {
     it('returns the least common multiple', () => {
       expect(number.lcm(2, 2)).to.eql(2);
