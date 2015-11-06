@@ -70,13 +70,13 @@ describe('Integer', () => {
 
   describe('#times', () => {
     it('Iterates the given block n times, passing in values from zero to n - 1', () => {
-      let x = 0;
+      let x = [];
 
-      number.times(5, () => {
-        x++;
+      number.times(5, (n) => {
+        x.push(n);
       });
 
-      expect(x).to.eql(5);
+      expect(x).to.eql([0, 1, 2, 3, 4]);
     });
   });
 

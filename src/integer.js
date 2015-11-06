@@ -139,17 +139,17 @@ function pred(num) {
 // As int is already a Number, all these methods simply return the receiver.
 //
 // ```js
-// let x = 0;
-// let number = (5).times(() => {
-//   x++;
+// let x = [];
+// let number = (5).times((n) => {
+//   x.push(n);
 // });
 //
-// x; // 5
+// x; // [0, 1, 2, 3, 4]
 // ```
-function times(num, cb) {
+function times(num, block) {
   num = num || this;
 
-  _times(num, cb);
+  _times(num, block);
 }
 
 // # to_i
