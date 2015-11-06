@@ -1,0 +1,244 @@
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Integer</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" media="all" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/tomorrow-night.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
+  <script src="assets/js/javascript.js"></script>
+</head>
+<body>
+  <div class="ui left push vertical inverted sidebar menu">
+    
+      
+      
+      <a class="item menu-link" href="index.html">
+        
+        Index 
+      </a>
+    
+      
+      
+      <a class="item menu-link" href="integer.html">
+        
+        Integer 
+      </a>
+    
+      
+      
+      <a class="item menu-link" href="percent_strings.html">
+        
+        Percent Strings 
+      </a>
+    
+      
+      
+      <a class="item menu-link" href="stdout.html">
+        
+        Stdout 
+      </a>
+    
+      
+      
+      <a class="item menu-link" href="string.html">
+        
+        String 
+      </a>
+    
+  </div>
+
+  <div class='pusher'>
+    <div id='menu-buttons' class='ui fixed top sticky'>
+      <div class='ui basic button icon' id='menu-button'>
+        <i class='icon sidebar'></i>
+      </div>
+      <a href='https://github.com/crookedneighbor/ruby-node/blob/master/src/integer.js' class='ui basic button icon' data-content="View Source Code">
+        <i class='icon code'></i>
+      </a>
+    </div>
+
+    <div id="background" class="hljs"></div>
+
+    <div id="container" class="ui container">
+      <div class="ui middle aligned two column grid">
+        <h2 class="ui icon header center aligned column">
+          <i class="calculator icon"></i>
+          Integer
+          <div class="sub header">The final countdown.</div>
+        </h2>
+        <div class='column'></div>
+      </div>
+
+      <div class="sections">
+          
+          
+          
+          
+            
+            
+            <div id="Methods
+" class="section-1 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#Methods
+">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="methods">Methods</h1>
+<ul>
+<li><a href="#even">even</a></li>
+<li><a href="#odd">odd</a></li>
+</ul>
+<p>These can be called through the int object on ruby:</p>
+<pre><code class="lang-js">ruby.int.even(<span class="hljs-number">5</span>); <span class="hljs-comment">// false</span>
+</code></pre>
+<p>Or, if you call the <code>add_methods_to_number_prototype</code> method, you can call each applicable method as a property on any number.</p>
+<pre><code class="lang-js">ruby = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ruby'</span>);
+ruby.add_methods_to_number_prototype();
+
+<span class="hljs-number">5.</span>odd; <span class="hljs-comment">// true</span>
+</code></pre>
+<p>The examples below will always use the prototype version, unless otherwise specified.</p>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_Integer</span> </span>{
+  constructor () {
+    <span class="hljs-keyword">this</span>.even = even;
+    <span class="hljs-keyword">this</span>.even_questionmark = <span class="hljs-keyword">this</span>.even;
+    <span class="hljs-keyword">this</span>.odd = odd;
+    <span class="hljs-keyword">this</span>.odd_questionmark = <span class="hljs-keyword">this</span>.odd;
+  }
+}</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="even
+
+Returns true if number is even.
+
+`even_questionmark` is an alias of `even`.
+
+```js
+let is_even = 4.even;
+is_even; // true
+
+is_even = 5.even;
+is_even; // false
+```" class="section-2 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#even
+
+Returns true if number is even.
+
+`even_questionmark` is an alias of `even`.
+
+```js
+let is_even = 4.even;
+is_even; // true
+
+is_even = 5.even;
+is_even; // false
+```">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="even">even</h1>
+<p>Returns true if number is even.</p>
+<p><code>even_questionmark</code> is an alias of <code>even</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> is_even = <span class="hljs-number">4.</span>even;
+is_even; <span class="hljs-comment">// true</span>
+
+is_even = <span class="hljs-number">5.</span>even;
+is_even; <span class="hljs-comment">// false</span>
+</code></pre>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span>(<span class="hljs-params">num</span>) </span>{
+  num = num || <span class="hljs-keyword">this</span>;
+
+  <span class="hljs-keyword">return</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>;
+}</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="odd
+
+Returns true if number is odd.
+
+`odd_questionmark` is an alias of `odd`.
+
+```js
+let is_odd = 4.odd;
+is_odd; // true
+
+is_odd = 5.odd;
+is_odd; // false
+```" class="section-3 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#odd
+
+Returns true if number is odd.
+
+`odd_questionmark` is an alias of `odd`.
+
+```js
+let is_odd = 4.odd;
+is_odd; // true
+
+is_odd = 5.odd;
+is_odd; // false
+```">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="odd">odd</h1>
+<p>Returns true if number is odd.</p>
+<p><code>odd_questionmark</code> is an alias of <code>odd</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> is_odd = <span class="hljs-number">4.</span>odd;
+is_odd; <span class="hljs-comment">// true</span>
+
+is_odd = <span class="hljs-number">5.</span>odd;
+is_odd; <span class="hljs-comment">// false</span>
+</code></pre>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">odd</span>(<span class="hljs-params">num</span>) </span>{
+  num = num || <span class="hljs-keyword">this</span>;
+
+  <span class="hljs-keyword">return</span> num % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>;
+}</pre></div></div>
+              
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>

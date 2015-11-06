@@ -30,6 +30,13 @@
     
       
       
+      <a class="item menu-link" href="integer.html">
+        
+        Integer 
+      </a>
+    
+      
+      
       <a class="item menu-link" href="percent_strings.html">
         
         Percent Strings 
@@ -158,7 +165,31 @@ are available both on the $stdout object and as standalone methods.</p>
                 <a class='section-link' href="#">
                   <i class="linkify icon"></i>
                 </a>
-                <h1 id="str-docs-str-html-">str - <a href="str.html">Docs</a></h1>
+                <h1 id="int-docs-integer-html-">int - <a href="integer.html">Docs</a></h1>
+<ul>
+<li><a href="integer.html#even">even</a></li>
+<li><a href="integer.html#odd">odd</a></li>
+</ul>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.int = <span class="hljs-keyword">new</span> _Integer();</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
+            <div id="" class="section-6 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="str-docs-string-html-">str - <a href="string.html">Docs</a></h1>
 <ul>
 <li><a href="string.html#chars">chars</a></li>
 <li><a href="string.html#downcase">downcase</a></li>
@@ -179,7 +210,7 @@ are available both on the $stdout object and as standalone methods.</p>
           
             
             
-            <div id="" class="section-6 ui middle aligned two column grid">
+            <div id="" class="section-7 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#">
@@ -207,8 +238,41 @@ are available both on the $stdout object and as standalone methods.</p>
           
             
             
+            <div id="add_methods_to_number_prototype
+" class="section-9 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#add_methods_to_number_prototype
+">
+                  <i class="linkify icon"></i>
+                </a>
+                <h1 id="add_methods_to_number_prototype">add_methods_to_number_prototype</h1>
+<p>If you’d like the <a href="integer.html">Integer Methods</a> as attributes on any number, just run this method.</p>
+<pre><code class="lang-js">ruby.add_methods_to_number_prototype();
+</code></pre>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre>  add_methods_to_number_prototype () {
+    each(functions(<span class="hljs-keyword">this</span>.int), (method) =&gt; {
+      <span class="hljs-built_in">Object</span>.defineProperty(
+        <span class="hljs-built_in">Number</span>.prototype,
+        method,
+        { get: <span class="hljs-keyword">this</span>.int[method] }
+      );
+    });
+  }</pre></div></div>
+              
+            </div>
+          
+        
+          
+          
+          
+            
+            
             <div id="add_methods_to_string_prototype
-" class="section-8 ui middle aligned two column grid">
+" class="section-10 ui middle aligned two column grid">
               <div class="annotation column">
                 
                 <a class='section-link' href="#add_methods_to_string_prototype
