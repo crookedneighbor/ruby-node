@@ -20,6 +20,46 @@ describe('Integer', () => {
     });
   });
 
+  describe('#gcd', () => {
+    it('returns the greatest common divisor', () => {
+      expect(number.gcd(2, 2)).to.eql(2);
+      expect(number.gcd(3, 7)).to.eql(1);
+    });
+
+    it('always returns a positive number', () => {
+      expect(number.gcd(-2, 2)).to.eql(2);
+      expect(number.gcd(3, -7)).to.eql(1);
+    });
+
+    it('(0).gcd(x) returns x', () => {
+      expect(number.gcd(0, 232)).to.eql(232);
+    });
+
+    it('(x).gcd(0) returns x', () => {
+      expect(number.gcd(232, 0)).to.eql(232);
+    });
+  });
+
+  describe('#lcm', () => {
+    it('returns the least common multiple', () => {
+      expect(number.lcm(2, 2)).to.eql(2);
+      expect(number.lcm(3, 7)).to.eql(21);
+    });
+
+    it('always returns a positive number', () => {
+      expect(number.lcm(-2, 2)).to.eql(2);
+      expect(number.lcm(3, -7)).to.eql(21);
+    });
+
+    it('(0).lcm(x) returns zero', () => {
+      expect(number.lcm(0, 232)).to.eql(0);
+    });
+
+    it('(x).lcm(0) returns zero', () => {
+      expect(number.lcm(232, 0)).to.eql(0);
+    });
+  });
+
   describe('#next', () => {
     it('returns the number incremented by one', () => {
       let num = number.next(1);

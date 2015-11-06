@@ -3,11 +3,14 @@
 // The final countdown.
 import {
   times as _times,
+  isUndefined,
 } from 'lodash';
 
 // # Methods
 //
 // * [even](#even)
+// * [gcd](#gcd)
+// * [lcm](#lcm)
 // * [next](#next)
 // * [odd](#odd)
 // * [pred](#pred)
@@ -51,6 +54,8 @@ export default class _Integer {
   constructor () {
     this.even = even;
     this.even_questionmark = this.even;
+    this.gcd = gcd;
+    this.lcm = lcm;
     this.next = next;
     this.odd = odd;
     this.odd_questionmark = this.odd;
@@ -79,6 +84,55 @@ function even(num) {
   num = num || this;
 
   return num % 2 === 0;
+}
+
+// # gcd
+//
+// Returns the greatest common divisor (always positive).
+//
+// ```js
+// (2).gcd(2); // 2
+// (3).gcd(-7); // 1
+// ```
+//
+// (0).gcd(x) and x.gcd(0) return abs(x).
+//
+// ```js
+// (0).gcd(-7); // 7
+// (7).gcd(0); // 7
+// ```
+function gcd(number_1, number_2) {
+  if (isUndefined(number_1)) number_1 = this;
+
+  if (number_2) {
+    return gcd(number_2, number_1 % number_2);
+  } else {
+    return Math.abs(number_1);
+  }
+}
+
+// # lcm
+//
+// Returns the least common multiple (always positive).
+//
+// ```js
+// (2).lcm(2); // 2
+// (3).lcm(-7); // 21
+// ```
+//
+// (0).lcm(x) and x.lcm(0) return zero.
+//
+// ```js
+// (0).gcd(-7); // 0
+// (7).gcd(0); // 0
+// ```
+function lcm(number_1, number_2) {
+  if (isUndefined(number_1)) number_1 = this;
+
+  let top_of_equation = Math.abs(number_1 * number_2);
+  let bottom_of_equation = gcd(number_1, number_2);
+
+  return top_of_equation / bottom_of_equation;
 }
 
 // # next
