@@ -80,6 +80,18 @@ describe('Integer', () => {
     });
   });
 
+  describe('#upto', () => {
+    it('Iterates the given block, passing in integer values from int up to and including limit.', () => {
+      let x = [];
+
+      number.upto(5, 10, (n) => {
+        x.push(n);
+      });
+
+      expect(x).to.eql([5, 6, 7, 8, 9, 10]);
+    });
+  });
+
   describe('#to_i', () => {
     it('returns the number', () => {
       let num = number.to_i(1);

@@ -13,6 +13,7 @@ import {
 // * [pred](#pred)
 // * [succ](#succ)
 // * [times](#times)
+// * [upto](#upto)
 // * [to_i](#to_i)
 //
 // These can be called through the int object on ruby:
@@ -56,6 +57,7 @@ export default class _Integer {
     this.pred = pred;
     this.succ = this.next;
     this.times = times;
+    this.upto = upto;
     this.to_i = to_i;
   }
 }
@@ -150,6 +152,26 @@ function times(num, block) {
   num = num || this;
 
   _times(num, block);
+}
+
+// # upto
+//
+// Iterates the given block, passing in integer values from int up to and including limit.
+//
+// ```js
+// let x = [];
+// let number = (5).upto(10, (n) => {
+//   x.push(n);
+// });
+//
+// x; // [5, 6, 7, 8, 9, 10]
+// ```
+function upto(original_number, upto_number, block) {
+  original_number = original_number  || this;
+
+  for (var i = original_number; i <= upto_number; i++) {
+    block(i);
+  }
 }
 
 // # to_i
