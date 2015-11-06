@@ -168,7 +168,16 @@ are available both on the $stdout object and as standalone methods.</p>
                 <h1 id="int-docs-integer-html-">int - <a href="integer.html">Docs</a></h1>
 <ul>
 <li><a href="integer.html#even">even</a></li>
+<li><a href="integer.html#gcd">gcd</a></li>
+<li><a href="integer.html#gcdlcm">gcdlcm</a></li>
+<li><a href="integer.html#lcm">lcm</a></li>
+<li><a href="integer.html#next">next</a></li>
 <li><a href="integer.html#odd">odd</a></li>
+<li><a href="integer.html#pred">pred</a></li>
+<li><a href="integer.html#succ">succ</a></li>
+<li><a href="integer.html#times">times</a></li>
+<li><a href="integer.html#upto">upto</a></li>
+<li><a href="integer.html#to_i">to_i</a></li>
 </ul>
 
               </div>
@@ -254,13 +263,7 @@ are available both on the $stdout object and as standalone methods.</p>
               </div>
               
                 <div class="content column hljs javascript"><div class='highlight'><pre>  add_methods_to_number_prototype () {
-    each(functions(<span class="hljs-keyword">this</span>.int), (method) =&gt; {
-      <span class="hljs-built_in">Object</span>.defineProperty(
-        <span class="hljs-built_in">Number</span>.prototype,
-        method,
-        { get: <span class="hljs-keyword">this</span>.int[method] }
-      );
-    });
+    _addMethodsToPrototype(<span class="hljs-built_in">Number</span>.prototype, <span class="hljs-keyword">this</span>.int);
   }</pre></div></div>
               
             </div>
@@ -287,13 +290,7 @@ are available both on the $stdout object and as standalone methods.</p>
               </div>
               
                 <div class="content column hljs javascript"><div class='highlight'><pre>  add_methods_to_string_prototype () {
-    each(functions(<span class="hljs-keyword">this</span>.str), (method) =&gt; {
-      <span class="hljs-built_in">Object</span>.defineProperty(
-        <span class="hljs-built_in">String</span>.prototype,
-        method,
-        { get: <span class="hljs-keyword">this</span>.str[method] }
-      );
-    });
+    _addMethodsToPrototype(<span class="hljs-built_in">String</span>.prototype, <span class="hljs-keyword">this</span>.str);
   }</pre></div></div>
               
             </div>
@@ -301,6 +298,38 @@ are available both on the $stdout object and as standalone methods.</p>
         
           
           
+          
+        
+          
+          
+          
+            
+            
+            <div id="" class="section-12 ui middle aligned two column grid">
+              <div class="annotation column">
+                
+                <a class='section-link' href="#">
+                  <i class="linkify icon"></i>
+                </a>
+                <p>More than one argument indicates that the second is a block</p>
+
+              </div>
+              
+                <div class="content column hljs javascript"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (method.length &gt; <span class="hljs-number">1</span>) {
+      prototype[method_name] = _generate_method_with_block(method);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">Object</span>.defineProperty(
+        prototype,
+        method_name,
+        { get: method }
+      );
+    }
+  });
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Ruby();</pre></div></div>
+              
+            </div>
           
         
       </div>
