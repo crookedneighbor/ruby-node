@@ -67,4 +67,11 @@ describe('Integer', () => {
       expect(number.succ).to.eql(number.next);
     });
   });
+
+  describe('#to_i', () => {
+    it('returns the number', () => {
+      let num = number.to_i(1);
+      expect(num).to.eql(1);
+    });
+  });
 });

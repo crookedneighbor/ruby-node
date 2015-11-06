@@ -9,6 +9,7 @@
 // * [odd](#odd)
 // * [pred](#pred)
 // * [succ](#succ)
+// * [to_i](#to_i)
 //
 // These can be called through the int object on ruby:
 //
@@ -35,6 +36,7 @@ export default class _Integer {
     this.odd_questionmark = this.odd;
     this.pred = pred;
     this.succ = this.next;
+    this.to_i = to_i;
   }
 }
 
@@ -110,5 +112,19 @@ function pred(num) {
   num = num || this;
 
   return num - 1;
+}
+
+// # to_i
+//
+// As int is already a Number, all these methods simply return the receiver.
+//
+// ```js
+// let number = 1.to_i;
+// number; // 1
+// ```
+function to_i(num) {
+  num = num || this;
+
+  return num;
 }
 
