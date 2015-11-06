@@ -47,7 +47,7 @@ class Ruby {
     // * [odd](integer.html#odd)
     this.int = new _Integer();
 
-    // # str - [Docs](str.html)
+    // # str - [Docs](string.html)
     //
     // * [chars](string.html#chars)
     // * [downcase](string.html#downcase)
