@@ -27,7 +27,22 @@ import {
 // ruby = require('ruby');
 // ruby.add_methods_to_number_prototype();
 //
-// 5.odd; // true
+// let number = 5;
+// number.odd; // true
+// ```
+//
+// **Note:** because Javascript will interpret a `.` after a number as a float, you cannot call the properties directly on the number or you will get a syntax error. Instead, you can call the property like this:
+//
+// ```js
+// // set a variable
+// let number = 5;
+// number.odd; // true
+//
+// // use the .. notation
+// 5..odd; // true
+//
+// // surround it in ()
+// (5).odd; //true
 // ```
 //
 // The examples below will always use the prototype version, unless otherwise specified.
@@ -52,10 +67,10 @@ export default class _Integer {
 // `even_questionmark` is an alias of `even`.
 //
 // ```js
-// let is_even = 4.even;
+// let is_even = (4).even;
 // is_even; // true
 //
-// is_even = 5.even;
+// is_even = (5).even;
 // is_even; // false
 // ```
 function even(num) {
@@ -71,10 +86,10 @@ function even(num) {
 // `succ` is an alias for `next`.
 //
 // ```js
-// let next_number = 1.next;
+// let next_number = (1).next;
 // next_number; // 2
 //
-// next_number = -1.next;
+// next_number = -(1).next;
 // next_number; // 0
 // ```
 function next(num) {
@@ -90,10 +105,10 @@ function next(num) {
 // `odd_questionmark` is an alias of `odd`.
 //
 // ```js
-// let is_odd = 4.odd;
+// let is_odd = (4).odd;
 // is_odd; // true
 //
-// is_odd = 5.odd;
+// is_odd = (5).odd;
 // is_odd; // false
 // ```
 function odd(num) {
@@ -107,10 +122,10 @@ function odd(num) {
 // Returns the Integer equal to int - 1.
 //
 // ```js
-// let previous_number = 1.pred;
+// let previous_number = (1).pred;
 // previous_number; // 0
 //
-// previous_number = -1.pred;
+// previous_number = (-1).pred;
 // previous_number; // -2
 // ```
 function pred(num) {
@@ -125,7 +140,7 @@ function pred(num) {
 //
 // ```js
 // let x = 0;
-// let number = 1.times(() => {
+// let number = (5).times(() => {
 //   x++;
 // });
 //
