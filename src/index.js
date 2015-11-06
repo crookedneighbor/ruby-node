@@ -77,13 +77,7 @@ class Ruby {
   // ruby.add_methods_to_number_prototype();
   // ```
   add_methods_to_number_prototype () {
-    each(functions(this.int), (method) => {
-      Object.defineProperty(
-        Number.prototype,
-        method,
-        { get: this.int[method] }
-      );
-    });
+    _addMethodsToPrototype(Number.prototype, this.int);
   }
 
   // # add_methods_to_string_prototype
@@ -94,16 +88,35 @@ class Ruby {
   // ruby.add_methods_to_string_prototype();
   // ```
   add_methods_to_string_prototype () {
-    each(functions(this.str), (method) => {
-      Object.defineProperty(
-        String.prototype,
-        method,
-        { get: this.str[method] }
-      );
-    });
+    _addMethodsToPrototype(String.prototype, this.str);
   }
 
 // NOOP
+}
+
+function _generate_method_with_block (func) {
+  return function (cb) {
+    return func(this, cb);
+  }
+}
+
+function _addMethodsToPrototype(prototype, object) {
+  let methods = functions(object);
+
+  each(methods, (method_name) => {
+    let method = object[method_name];
+
+    // More than one argument indicates that the second is a block
+    if (method.length > 1) {
+      prototype[method_name] = _generate_method_with_block(method);
+    } else {
+      Object.defineProperty(
+        prototype,
+        method_name,
+        { get: method }
+      );
+    }
+  });
 }
 
 export default new Ruby();
