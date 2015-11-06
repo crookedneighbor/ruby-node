@@ -8,6 +8,7 @@
 // * [next](#next)
 // * [odd](#odd)
 // * [pred](#pred)
+// * [succ](#succ)
 //
 // These can be called through the int object on ruby:
 //
@@ -33,6 +34,7 @@ export default class _Integer {
     this.odd = odd;
     this.odd_questionmark = this.odd;
     this.pred = pred;
+    this.succ = this.next;
   }
 }
 
@@ -58,6 +60,8 @@ function even(num) {
 // # next
 //
 // Returns the Integer equal to int + 1.
+//
+// `succ` is an alias for `next`.
 //
 // ```js
 // let next_number = 1.next;

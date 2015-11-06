@@ -47,6 +47,7 @@ class Ruby {
     // * [next](integer.html#next)
     // * [odd](integer.html#odd)
     // * [pred](#pred)
+    // * [succ](#succ)
     this.int = new _Integer();
 
     // # str - [Docs](string.html)

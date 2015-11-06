@@ -61,4 +61,10 @@ describe('Integer', () => {
       expect(num).to.eql(-2);
     });
   });
+
+  describe('#succ', () => {
+    it('is an alias for #next', () => {
+      expect(number.succ).to.eql(number.next);
+    });
+  });
 });
