@@ -14,6 +14,12 @@ describe('Integer', () => {
     });
   });
 
+  describe('#even_questionmark', () => {
+    it('is an alias for #even', () => {
+      expect(number.even_questionmark).to.eql(number.even);
+    });
+  });
+
   describe('#next', () => {
     it('returns the number incremented by one', () => {
       let num = number.next(1);
@@ -35,6 +41,12 @@ describe('Integer', () => {
     it('returns false if number is not odd', () => {
       let num = number.odd(6);
       expect(num).to.eql(false);
+    });
+  });
+
+  describe('#odd_questionmark', () => {
+    it('is an alias for #odd', () => {
+      expect(number.odd_questionmark).to.eql(number.odd);
     });
   });
 
