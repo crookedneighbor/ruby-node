@@ -44,6 +44,7 @@ class Ruby {
     // # int - [Docs](integer.html)
     //
     // * [even](integer.html#even)
+    // * [next](integer.html#next)
     // * [odd](integer.html#odd)
     this.int = new _Integer();
 

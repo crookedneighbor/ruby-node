@@ -5,6 +5,7 @@
 // # Methods
 //
 // * [even](#even)
+// * [next](#next)
 // * [odd](#odd)
 //
 // These can be called through the int object on ruby:
@@ -27,6 +28,7 @@ export default class _Integer {
   constructor () {
     this.even = even;
     this.even_questionmark = this.even;
+    this.next = next;
     this.odd = odd;
     this.odd_questionmark = this.odd;
   }
@@ -49,6 +51,23 @@ function even(num) {
   num = num || this;
 
   return num % 2 === 0;
+}
+
+// # next
+//
+// Returns the Integer equal to int + 1.
+//
+// ```js
+// let next_number = 1.next;
+// next_number; // 2
+//
+// next_number = -1.next;
+// next_number; // 0
+// ```
+function next(num) {
+  num = num || this;
+
+  return num + 1;
 }
 
 // # odd
