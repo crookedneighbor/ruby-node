@@ -6,6 +6,7 @@ import {
 import ruby from  '../src/index';
 
 import $Stdout from '../src/stdout';
+import _Integer from '../src/integer';
 import _String from '../src/string';
 import PercentStrings from '../src/percent_strings';
 
@@ -19,6 +20,12 @@ describe('ruby', () => {
       it(`has a method named ${method}`, () => {
         expect(ruby[method]).to.be.a('function');
       });
+    });
+  });
+
+  context('integer methods', () => {
+    it('has a int property', () => {
+      expect(ruby.int).to.be.an.instanceOf(_Integer);
     });
   });
 
@@ -36,7 +43,18 @@ describe('ruby', () => {
     });
   });
 
-  describe('#add_string_methods_to_prototype', () => {
+  describe('#add_methods_to_number_prototype', () => {
+    ruby.add_methods_to_number_prototype();
+
+    each(functions(new _Integer()), (method) => {
+      it(`adds ${method} property to the Integer prototype`, () => {
+        let num = 5;
+        expect(num).to.have.property(method);
+      });
+    });
+  });
+
+  describe('#add_methods_to_string_prototype', () => {
     ruby.add_methods_to_string_prototype();
 
     each(functions(new _String()), (method) => {

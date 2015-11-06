@@ -10,6 +10,7 @@ import {
 } from 'lodash';
 
 import $Stdout from './stdout';
+import _Integer from './integer';
 import _String from './string';
 import PercentStrings from './percent_strings';
 
@@ -40,6 +41,12 @@ class Ruby {
     this.$stdout = new $Stdout();
     assign(this, this.$stdout);
 
+    // # int - [Docs](integer.html)
+    //
+    // * [even](integer.html#even)
+    // * [odd](integer.html#odd)
+    this.int = new _Integer();
+
     // # str - [Docs](str.html)
     //
     // * [chars](string.html#chars)
@@ -56,6 +63,23 @@ class Ruby {
     assign(this, new PercentStrings());
 
   // NOOP
+  }
+
+  // # add_methods_to_number_prototype
+  //
+  // If you'd like the [Integer Methods](integer.html) as attributes on any number, just run this method.
+  //
+  // ```js
+  // ruby.add_methods_to_number_prototype();
+  // ```
+  add_methods_to_number_prototype () {
+    each(functions(this.int), (method) => {
+      Object.defineProperty(
+        Number.prototype,
+        method,
+        { get: this.int[method] }
+      );
+    });
   }
 
   // # add_methods_to_string_prototype
