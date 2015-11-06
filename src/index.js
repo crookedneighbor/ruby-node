@@ -48,6 +48,7 @@ class Ruby {
     // * [odd](integer.html#odd)
     // * [pred](integer.html#pred)
     // * [succ](integer.html#succ)
+    // * [times](integer.html#times)
     // * [to_i](integer.html#to_i)
     this.int = new _Integer();
 

@@ -1,6 +1,9 @@
 // Integer
 // calculator
 // The final countdown.
+import {
+  times as _times,
+} from 'lodash';
 
 // # Methods
 //
@@ -9,6 +12,7 @@
 // * [odd](#odd)
 // * [pred](#pred)
 // * [succ](#succ)
+// * [times](#times)
 // * [to_i](#to_i)
 //
 // These can be called through the int object on ruby:
@@ -36,6 +40,7 @@ export default class _Integer {
     this.odd_questionmark = this.odd;
     this.pred = pred;
     this.succ = this.next;
+    this.times = times;
     this.to_i = to_i;
   }
 }
@@ -114,17 +119,34 @@ function pred(num) {
   return num - 1;
 }
 
+// # times
+//
+// As int is already a Number, all these methods simply return the receiver.
+//
+// ```js
+// let x = 0;
+// let number = 1.times(() => {
+//   x++;
+// });
+//
+// x; // 5
+// ```
+function times(num, cb) {
+  num = num || this;
+
+  _times(num, cb);
+}
+
 // # to_i
 //
 // As int is already a Number, all these methods simply return the receiver.
 //
 // ```js
-// let number = 1.to_i;
-// number; // 1
+// let number = 1;
+// number.to_i; // 1
 // ```
 function to_i(num) {
   num = num || this;
 
   return num;
 }
-

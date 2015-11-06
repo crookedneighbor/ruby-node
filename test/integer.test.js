@@ -68,6 +68,18 @@ describe('Integer', () => {
     });
   });
 
+  describe('#times', () => {
+    it('Iterates the given block n times, passing in values from zero to n - 1', () => {
+      let x = 0;
+
+      number.times(5, () => {
+        x++;
+      });
+
+      expect(x).to.eql(5);
+    });
+  });
+
   describe('#to_i', () => {
     it('returns the number', () => {
       let num = number.to_i(1);
