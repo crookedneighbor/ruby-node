@@ -96,8 +96,8 @@ class Ruby {
 }
 
 function _generate_method_with_block (func) {
-  return function (cb) {
-    return func(this, cb);
+  return function (...args) {
+    return func(this, ...args);
   }
 }
 
