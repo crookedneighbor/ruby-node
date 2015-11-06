@@ -37,4 +37,16 @@ describe('Integer', () => {
       expect(num).to.eql(false);
     });
   });
+
+  describe('#pred', () => {
+    it('returns the number incremented by one', () => {
+      let num = number.pred(1);
+      expect(num).to.eql(0);
+    });
+
+    it('returns the negative number incremented by one', () => {
+      let num = number.pred(-1);
+      expect(num).to.eql(-2);
+    });
+  });
 });

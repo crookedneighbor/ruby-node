@@ -7,6 +7,7 @@
 // * [even](#even)
 // * [next](#next)
 // * [odd](#odd)
+// * [pred](#pred)
 //
 // These can be called through the int object on ruby:
 //
@@ -31,6 +32,7 @@ export default class _Integer {
     this.next = next;
     this.odd = odd;
     this.odd_questionmark = this.odd;
+    this.pred = pred;
   }
 }
 
@@ -88,3 +90,21 @@ function odd(num) {
 
   return num % 2 != 0;
 }
+
+// # pred
+//
+// Returns the Integer equal to int - 1.
+//
+// ```js
+// let previous_number = 1.pred;
+// previous_number; // 0
+//
+// previous_number = -1.pred;
+// previous_number; // -2
+// ```
+function pred(num) {
+  num = num || this;
+
+  return num - 1;
+}
+
