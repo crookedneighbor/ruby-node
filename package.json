@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/crookedneighbor/ruby-node#readme",
   "devDependencies": {
-    "babel": "^5.8.21",
+    "babel": "^6.3.26",
     "chai": "^3.2.0",
     "chai-as-promised": "^6.0.0",
     "del": "^2.0.2",
