@@ -4,11 +4,10 @@
   "description": "Helper methods from ruby ported to Node.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "gulp babel",
     "docs": "gulp docs",
     "docs:deploy": "gulp docs:deploy",
     "lint": "gulp lint",
-    "test": "npm run build && npm run lint && gulp test"
+    "test": "npm run lint && gulp test"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   },
   "homepage": "https://github.com/crookedneighbor/ruby-node#readme",
   "devDependencies": {
-    "babel": "^5.8.21",
     "chai": "^3.2.0",
     "chai-as-promised": "^6.0.0",
     "del": "^2.0.2",
@@ -33,7 +31,6 @@
     "eslint-plugin-mocha": "^4.8.0",
     "glob": "^7.0.5",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.3.0",
     "gulp-eslint": "^1.0.0",
     "gulp-gh-pages": "^0.5.3",
     "logtrap": "0.0.1",

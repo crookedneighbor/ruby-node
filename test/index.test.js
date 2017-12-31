@@ -1,14 +1,12 @@
-import {
-  each,
-  functions,
-} from 'lodash';
+const each = require('lodash').each;
+const functions = require('lodash').functions;
 
-import ruby from  '../src/index';
+const ruby = require('../src/index');
 
-import $Stdout from '../src/stdout';
-import _Integer from '../src/integer';
-import _String from '../src/string';
-import PercentStrings from '../src/percent_strings';
+const $Stdout = require('../src/stdout');
+const _Integer = require('../src/integer');
+const _String = require('../src/string');
+const PercentStrings = require('../src/percent_strings');
 
 describe('ruby', () => {
   context('$stdout methods', () => {

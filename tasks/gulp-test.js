@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import {resolve} from 'path';
-import {sync as glob} from 'glob';
-import Mocha from 'mocha';
+let gulp = require('gulp');
+let resolve = require('path').resolve;
+let glob = require('glob').sync;
+let Mocha = require('mocha');
 
 require('../test/support/globals');
 

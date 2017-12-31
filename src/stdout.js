@@ -4,23 +4,21 @@
 
 /* eslint-disable no-console */
 
-import {
-  each,
-  isArray,
-  isBoolean,
-  isNull,
-  isNumber,
-  isObject,
-  isPlainObject,
-  isRegExp,
-  isString,
-  isUndefined,
-} from 'lodash';
+const each = require('lodash').each;
+const isArray = require('lodash').isArray;
+const isBoolean = require('lodash').isBoolean;
+const isNull = require('lodash').isNull;
+const isNumber = require('lodash').isNumber;
+const isObject = require('lodash').isObject;
+const isPlainObject = require('lodash').isPlainObject;
+const isRegExp = require('lodash').isRegExp;
+const isString = require('lodash').isString;
+const isUndefined = require('lodash').isUndefined;
 
 // # Methods
 // * [putc](#putc)
 // * [puts](#puts)
-export default class $Stdout {
+module.exports = class $Stdout {
   constructor () {
     this.putc = putc;
     this.puts = puts;

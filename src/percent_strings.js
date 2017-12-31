@@ -7,7 +7,7 @@
 //
 // * [w](#w)
 // * [percent_w](#percent_w)
-export default class PercentStrings {
+module.exports = class PercentStrings {
   constructor () {
     this.w = w;
     this.percent_w = percent_w;

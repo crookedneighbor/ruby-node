@@ -1,5 +1,5 @@
-import { stdoutTrap } from 'logtrap';
-import $Stdout from '../src/stdout';
+const stdoutTrap = require('logtrap').stdoutTrap;
+const $Stdout = require('../src/stdout');
 let $stdout = new $Stdout;
 
 describe('$stdout', () => {

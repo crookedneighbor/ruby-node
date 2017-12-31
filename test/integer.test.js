@@ -1,4 +1,4 @@
-import _Integer from '../src/integer';
+const _Integer = require('../src/integer');
 let number = new _Integer;
 
 describe('Integer', () => {

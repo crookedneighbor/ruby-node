@@ -1,4 +1,4 @@
-import PercentStrings from '../src/percent_strings';
+const PercentStrings = require('../src/percent_strings');
 let ps = new PercentStrings();
 
 describe('Percent Strings', () => {

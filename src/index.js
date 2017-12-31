@@ -3,16 +3,13 @@
 // Helper methods from ruby ported to Node.
 
 // NOOP
-import {
-  assign,
-  each,
-  functions,
-} from 'lodash';
+const each = require('lodash').each;
+const functions = require('lodash').functions;
 
-import $Stdout from './stdout';
-import _Integer from './integer';
-import _String from './string';
-import PercentStrings from './percent_strings';
+const $Stdout = require('./stdout');
+const _Integer = require('./integer');
+const _String = require('./string');
+const PercentStrings = require('./percent_strings');
 
 // # Getting Started
 //
@@ -39,7 +36,7 @@ class Ruby {
     // * [putc](stdout.html#putc)
     // * [puts](stdout.html#puts)
     this.$stdout = new $Stdout();
-    assign(this, this.$stdout);
+    Object.assign(this, this.$stdout);
 
     // # int - [Docs](integer.html)
     //
@@ -69,7 +66,7 @@ class Ruby {
     //
     // * [w](percent_strings.html#w)
     // * [percent_w](percent_strings.html#percent_w)
-    assign(this, new PercentStrings());
+    Object.assign(this, new PercentStrings());
 
   // NOOP
   }
@@ -124,4 +121,4 @@ function _addMethodsToPrototype(prototype, object) {
   });
 }
 
-export default new Ruby();
+module.exports = new Ruby();

@@ -1,4 +1,4 @@
-import _String from '../src/string';
+const _String = require('../src/string');
 let string = new _String;
 
 describe('String', () => {

@@ -1,9 +1,7 @@
 // String
 // write
 // All strings attached!
-import {
-  times as _times,
-} from 'lodash';
+const _times = require('lodash').times;
 
 // # Methods
 //
@@ -29,7 +27,7 @@ import {
 // ```
 //
 // The examples below will always use the prototype version, unless otherwise specified.
-export default class _String {
+module.exports = class _String {
   constructor () {
     this.chars = chars;
     this.downcase = downcase;

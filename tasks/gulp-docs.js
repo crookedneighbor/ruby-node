@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import {sync as glob} from 'glob';
-import docco from 'docco';
-import ghPages from 'gulp-gh-pages';
+const gulp = require('gulp');
+const glob = require('glob').sync;
+const docco = require('docco');
+const ghPages = require('gulp-gh-pages');
 
 gulp.task('docs', (done) => {
   let options = {

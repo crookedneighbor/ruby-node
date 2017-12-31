@@ -1,10 +1,8 @@
 // Integer
 // calculator
 // The final countdown.
-import {
-  times as _times,
-  isUndefined,
-} from 'lodash';
+const _times = require('lodash').times;
+const isUndefined = require('lodash').isUndefined;
 
 // # Methods
 //
@@ -51,7 +49,7 @@ import {
 // ```
 //
 // The examples below will always use the prototype version, unless otherwise specified.
-export default class _Integer {
+module.exports = class _Integer {
   constructor () {
     this.even = even;
     this.even_questionmark = this.even;
