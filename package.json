@@ -2,7 +2,7 @@
   "name": "ruby",
   "version": "0.6.1",
   "description": "Helper methods from ruby ported to Node.",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "docs": "gulp docs",
     "docs:deploy": "gulp docs:deploy",
