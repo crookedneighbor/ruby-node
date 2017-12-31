@@ -1,3 +1,5 @@
+'use strict';
+
 let gulp = require('gulp');
 let resolve = require('path').resolve;
 let glob = require('glob').sync;

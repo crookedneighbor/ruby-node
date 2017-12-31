@@ -1,3 +1,4 @@
+'use strict';
 // Ruby for Node
 // diamond
 // Helper methods from ruby ported to Node.

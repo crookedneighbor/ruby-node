@@ -24,17 +24,17 @@
   },
   "homepage": "https://github.com/crookedneighbor/ruby-node#readme",
   "devDependencies": {
-    "chai": "^3.2.0",
-    "chai-as-promised": "^6.0.0",
-    "del": "^2.0.2",
-    "docco": "^0.7.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "del": "^3.0.0",
+    "docco": "^0.8.0",
     "eslint-plugin-mocha": "^4.8.0",
     "glob": "^7.0.5",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^1.0.0",
+    "gulp-eslint": "^4.0.0",
     "gulp-gh-pages": "^0.5.3",
     "logtrap": "0.0.1",
-    "mocha": "^3.0.0"
+    "mocha": "^4.1.0"
   },
   "dependencies": {
     "lodash": "^4.13.0"

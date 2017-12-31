@@ -1,10 +1,6 @@
 env:
   node: true
   es6: true
-ecmaFeatures:
-  modules: true
-  objectLiteralShorthandMethods: true
-  objectLiteralShorthandProperties: true
 plugins:
   - mocha
 rules:
@@ -28,7 +24,7 @@ rules:
   space-after-function-name: 0
   no-undefined: 2
   radix: 2
-  space-after-keywords: [2, "always"]
+  keyword-spacing: ["error", { "after": true }]
   space-before-blocks: 2
   spaced-comment: [2, "always", { exceptions: ["-"]}]
   strict: [2, "global"]

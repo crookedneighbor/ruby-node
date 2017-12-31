@@ -1,3 +1,4 @@
+'use strict';
 // Integer
 // calculator
 // The final countdown.

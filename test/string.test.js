@@ -1,3 +1,5 @@
+'use strict';
+
 const _String = require('../src/string');
 let string = new _String;
 

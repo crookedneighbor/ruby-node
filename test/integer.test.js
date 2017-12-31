@@ -1,3 +1,5 @@
+'use strict';
+
 const _Integer = require('../src/integer');
 let number = new _Integer;
 

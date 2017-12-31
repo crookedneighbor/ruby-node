@@ -1,3 +1,4 @@
+'use strict';
 /*
  * Note: You probably don't need to edit this file. Instead, add your gulp
  * tasks with the ./tasks directory, where tasks are grouped by their

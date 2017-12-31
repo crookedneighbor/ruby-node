@@ -1,3 +1,5 @@
+'use strict';
+
 const PercentStrings = require('../src/percent_strings');
 let ps = new PercentStrings();
 

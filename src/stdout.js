@@ -1,3 +1,4 @@
+'use strict';
 // $stdout
 // comment outline
 // Get the stdout!

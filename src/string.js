@@ -1,3 +1,4 @@
+'use strict';
 // String
 // write
 // All strings attached!

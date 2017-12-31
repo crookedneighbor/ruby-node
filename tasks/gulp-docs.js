@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const glob = require('glob').sync;
 const docco = require('docco');
@@ -14,8 +16,7 @@ gulp.task('docs', (done) => {
 });
 
 gulp.task('docs:deploy', ['docs'], () => {
-  return gulp.src('./docs/**/*')
-  .pipe(ghPages());
+  return gulp.src('./docs/**/*').pipe(ghPages());
 });
 
 gulp.task('docs:watch', () => {

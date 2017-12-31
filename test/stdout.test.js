@@ -1,3 +1,5 @@
+'use strict';
+
 const stdoutTrap = require('logtrap').stdoutTrap;
 const $Stdout = require('../src/stdout');
 let $stdout = new $Stdout;
